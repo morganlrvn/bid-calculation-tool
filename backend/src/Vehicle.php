@@ -54,11 +54,11 @@ class CommonVehicle extends Vehicle
      * Calculates the basic buyer fee for a common vehicle.
      *
      * @return float Basic buyer fee.
-     */    
+     */
     public function calculateBasicBuyerFee()
     {
         $fee = 0.10 * $this->getBasePrice();
-        return min(max($fee, 10), 50);
+        return number_format(min(max($fee, 10), 50), 2, '.', '');
     }
 
     /**
@@ -75,7 +75,7 @@ class CommonVehicle extends Vehicle
      * Calculates the association fee based on the base price.
      *
      * @return int Association fee.
-     */    
+     */
     public function calculateAssociationFee()
     {
         $price = $this->getBasePrice();
@@ -99,17 +99,17 @@ class LuxuryVehicle extends Vehicle
     public function calculateBasicBuyerFee()
     {
         $fee = 0.10 * $this->getBasePrice();
-        return min(max($fee, 25), 200);
+        return number_format(min(max($fee, 25), 200), 2, '.', '');
     }
 
     /**
      * Calculates the special fee for a luxury vehicle.
      *
      * @return float Special fee.
-     */    
+     */
     public function calculateSpecialFee()
     {
-        return 0.04 * $this->getBasePrice();
+        return number_format(0.04 * $this->getBasePrice(), 2, '.', '');
     }
 
     /**
